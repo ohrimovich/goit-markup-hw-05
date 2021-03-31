@@ -181,7 +181,7 @@ img {
   text-align: center;
 }
 
-.overlay {
+.overlay-hero {
   max-width: 1600px;
   background-position: top left;
   background-image: linear-gradient(
@@ -220,6 +220,53 @@ img {
 
   color: var(--primary-white-color);
   background-color: var(--accent-color);
+}
+
+/* Backdrop */
+.backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+.backdrop.is-hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.modal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 528px;
+  height: 581px;
+
+  background-color: var(--primary-white-color);
+  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14),
+    0px 2px 1px rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+}
+
+.close-button {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: 30px;
+  height: 30px;
+  background-color: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 50%;
+  cursor: pointer;
 }
 
 /* Features */
@@ -482,7 +529,7 @@ img {
   background-color: var(--accent-color);
 }
 
-/* Potrfolio */
+/* Portfolio */
 
 .button {
   padding: 6px 22px;
@@ -550,6 +597,49 @@ img {
 .our-works-cards-list-item .link:focus {
   box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12), 0px 4px 4px rgba(0, 0, 0, 0.06),
     1px 4px 6px rgba(0, 0, 0, 0.16);
+}
+
+.our-works-cards-list-item-overlay {
+  position: relative;
+}
+
+.our-works-cards-list-item-overlay p {
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 63px 24px;
+
+  font-size: 18px;
+  line-height: 1.56;
+
+  color: var(--primary-white-color);
+  opacity: 0;
+}
+
+.our-works-cards-list-item-overlay::before {
+  position: absolute;
+  content: "";
+  top: 0;
+  left: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(33, 150, 243, 0.9);
+  opacity: 0;
+}
+
+.our-works-cards-list-item
+  .link:hover
+  .our-works-cards-list-item-overlay::before,
+.our-works-cards-list-item
+  .link:focus
+  .our-works-cards-list-item-overlay::before {
+  opacity: 1;
+}
+
+.our-works-cards-list-item .link:hover .our-works-cards-list-item-overlay p,
+.our-works-cards-list-item .link:focus .our-works-cards-list-item-overlay p {
+  opacity: 1;
 }
 
 .our-works-cards-list-content {
